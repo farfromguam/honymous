@@ -4,7 +4,10 @@
   <%= link_to('Log In', new_user_session_path) %>
 <% end %> <br>
 
+
 <h1>Honymous</h1>
+<%= link_to('new profile', new_profile_path) %> / your profile
+
 
 <%= form_tag profiles_path, :method => 'get' do %>
   <p>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130617141421) do
+ActiveRecord::Schema.define(:version => 20130617202726) do
 
   create_table "profiles", :force => true do |t|
     t.datetime "created_at",     :null => false
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20130617141421) do
     t.boolean  "about_myself"
     t.boolean  "anything"
     t.boolean  "public_profile"
+    t.string   "one_liner"
   end
 
   create_table "users", :force => true do |t|
