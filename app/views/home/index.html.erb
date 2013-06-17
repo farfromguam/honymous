@@ -5,12 +5,11 @@
 <% end %> <br>
 
 <h1>Honymous</h1>
-<p>
-Current Profiles, <%= @profile_count %>
-</p>
 
-<p>
-<% @all_profiles.each do |profile| %>
-  <%= link_to(profile.name, profile_path(profile.id)) %><br>
+<%= form_tag profiles_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil  %>
+  </p>
 <% end %>
-</p>
+
