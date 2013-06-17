@@ -1,0 +1,29 @@
+<h1>
+<%= @profile.name %>
+</h1>
+
+<p>
+  <%= @profile.description %>
+</p>
+
+<p>
+  <%= @profile.name %> is open to:
+
+  <% if @profile.comments == true %>
+    Comments
+  <% end %>
+
+  <% if @profile.criticism == true %>
+    Constructive Criticism
+  <% end %>
+
+  <% if @profile.about_myself == true %>
+    Hearing about Myself
+  <% end %>
+
+  <% if @profile.anything == true %>
+    Anything and Everything
+  <% end %>
+</p>
+
+<h3>Say something about <%= @profile.name %></h3>

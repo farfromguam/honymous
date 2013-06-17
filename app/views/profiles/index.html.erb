@@ -1,0 +1,20 @@
+<h1>Search results</h1>
+
+<%= form_tag profiles_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search Again", :name => nil  %>
+  </p>
+<% end %>
+
+
+
+<p>
+<% if @profile_search.length == 0 %>
+  There is nothing here
+<% else %>
+  <% @profile_search.each do |profile| %>
+    <%= link_to(profile.name, profile_path(profile.id)) %> - <%= profile.one_liner %><br>
+  <% end %>
+<% end %>
+</p>

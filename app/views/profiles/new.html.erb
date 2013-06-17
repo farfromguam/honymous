@@ -1,0 +1,41 @@
+<h1>Profiles#new</h1>
+<p>Find me in app/views/profiles/new.html.erb</p>
+
+<%= form_for@profile do |f| %>
+
+<p>
+  <%= f.label :name %><br>
+  <%= f.text_field :name, :size => 40 %>
+</p>
+<p>
+  <%= f.label :one_liner, "A one-liner to help people find you" %><br>
+  <%= f.text_field :one_liner, :size => 40 %>
+</p>
+<p>
+  <%= f.label :description %><br>
+  <%= f.text_area :description, :cols => 35, :rows => 5 %>
+</p>
+<p>
+  What feedback are you are looking for?
+<br>
+  <%= f.check_box :comments %>
+  <%= f.label :comments, "Comments" %>
+<br>
+  <%= f.check_box :criticism %>
+  <%= f.label :criticism, "Constructive criticism" %>
+<br>
+  <%= f.check_box :about_myself %>
+  <%= f.label :about_myself, "Hearing about myself" %>
+<br>
+  <%= f.check_box :anything %>
+  <%= f.label :anything, "Anything and Everything"%>
+</p>
+<p>
+  <%= f.check_box :public_profile %>
+  <%= f.label :public_profile, "Make my profile public" %>
+</p>
+
+<p>
+  <%= f.submit "Submit" %>
+</p>
+<% end %>
