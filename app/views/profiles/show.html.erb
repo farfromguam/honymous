@@ -8,22 +8,40 @@
 
 <p>
   <%= @profile.name %> is open to:
-
-  <% if @profile.comments == true %>
-    Comments
+  <% if @profile.general_comments == true %>
+    General Comments
   <% end %>
-
   <% if @profile.criticism == true %>
     Constructive Criticism
   <% end %>
-
   <% if @profile.about_myself == true %>
     Hearing about Myself
   <% end %>
-
   <% if @profile.anything == true %>
     Anything and Everything
   <% end %>
 </p>
 
-<h3>Say something about <%= @profile.name %></h3>
+
+<h3> The word on the street: </h3>
+<ul>
+<%= @profile_comments.each do |e| %>
+  <li><%= e.comment %></li>
+<% end %>
+</ul>
+
+
+<h3>Add your two cents:</h3>
+<%= form_for [@profile, @profile.comments.new] do |f| %>
+<%= f.text_area :comment, :cols => 35, :rows => 5 %><br>
+
+<% if user_signed_in? %>
+  [ ] Submit as Logged in user
+<% else %>
+  This will be submitted anonymously,<br>
+  <%= link_to('Log In', new_user_session_path) %> to submit as a real person.
+<% end %> <br>
+<p>
+  <%= f.submit "Submit" %>
+</p>
+<% end %>

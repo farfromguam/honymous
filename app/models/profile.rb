@@ -1,5 +1,6 @@
 class Profile < ActiveRecord::Base
-  attr_accessible :name, :description, :comments, :criticism, :about_myself, :anything, :public_profile, :one_liner
+  has_many :comments
+  attr_accessible :name, :description, :general_comments, :criticism, :about_myself, :anything, :public_profile, :one_liner
 
   def self.search(search)
     if search
@@ -8,5 +9,4 @@ class Profile < ActiveRecord::Base
       find(:all)
     end
   end
-
 end
