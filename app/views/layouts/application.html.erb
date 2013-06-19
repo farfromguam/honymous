@@ -8,6 +8,23 @@
 </head>
 <body>
 
+<% if user_signed_in? %>
+
+  <%= current_user.email %> |
+
+  <% if current_user.has_profile? %>
+    <%= link_to "Your profile", profile_path(current_user.profile) %>
+  <% else %>
+    <%= link_to('Create a profile', new_profile_path) %>
+  <% end %> |
+
+  <%= link_to('Log Out', destroy_user_session_path, :method => :delete) %>
+
+<% else %>
+  <%= link_to('Log In', new_user_session_path) %>
+<% end %> <br>
+
+
  <p class="notice"><%= notice %></p>
  <p class="alert"><%= alert %></p>
 

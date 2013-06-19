@@ -1,13 +1,5 @@
-<% if user_signed_in? %>
-  <%= link_to('Log Out', destroy_user_session_path, :method => :delete) %>
-<% else %>
-  <%= link_to('Log In', new_user_session_path) %>
-<% end %> <br>
-
-
 <h1>Honymous</h1>
 <%= @all_profiles.count %> Profiles Online<br>
-<%= link_to('new profile', new_profile_path) %> / your profile
 
 
 <%= form_tag profiles_path, :method => 'get' do %>
@@ -16,4 +8,6 @@
     <%= submit_tag "Search", :name => nil  %>
   </p>
 <% end %>
+
+<%= Profile.all %>
 
