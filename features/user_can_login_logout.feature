@@ -13,6 +13,7 @@ Feature: Users can Log In and log out
     Then I should see "Signed in successfully."
     And I should see "Log Out"
     And I should not see "Log In"
+    And I should see "bob@example.com"
 
   Scenario: Log Out
     Given the user "bob@example.com" with password "password1"

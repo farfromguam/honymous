@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   def has_profile?
-    !Profile.where( :user_id == self.id ).nil?
+    Profile.exists?( :user_id == self.id )
   end
 
 end

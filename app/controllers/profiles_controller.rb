@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.create( params[:profile] )
     if @profile.save
       flash[:notice] = "Your post has now been published!"
-      redirect_to :root
+      redirect_to profile_path(@profile.id)
     else
       flash[:notice] = "Fail"
     end

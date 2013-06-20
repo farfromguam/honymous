@@ -1,6 +1,7 @@
 <h1>Honymous</h1>
-<%= @all_profiles.count %> Profiles Online<br>
+<p>Honest and Annymous comments</p>
 
+<%= @all_profiles.count %> Profiles Online<br>
 
 <%= form_tag profiles_path, :method => 'get' do %>
   <p>
@@ -8,6 +9,3 @@
     <%= submit_tag "Search", :name => nil  %>
   </p>
 <% end %>
-
-<%= Profile.all %>
-
