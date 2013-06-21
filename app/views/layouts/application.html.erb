@@ -13,7 +13,7 @@
   <%= current_user.email %> |
 
   <% if current_user.has_profile? %>
-    <%= link_to "Your profile", profile_path(current_user.profile) %>
+    <%= link_to "Your public profile", profile_path(current_user.profile) %>
   <% else %>
     <%= link_to('Create a profile', new_profile_path) %>
   <% end %> |

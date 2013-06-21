@@ -4,7 +4,9 @@ Honymous::Application.routes.draw do
   devise_for :users
 
   resources :profiles do
-    resources :comments
+    resources :comments do
+      resources :counters
+    end
   end
 
 
