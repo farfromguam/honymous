@@ -37,14 +37,10 @@ ActiveRecord::Schema.define(:version => 20130620155314) do
   end
 
   create_table "profiles", :force => true do |t|
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "name"
     t.text     "description"
-    t.boolean  "criticism"
-    t.boolean  "general_comments"
-    t.boolean  "about_myself"
-    t.boolean  "anything"
     t.boolean  "public_profile"
     t.string   "one_liner"
     t.integer  "user_id"

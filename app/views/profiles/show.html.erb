@@ -1,23 +1,6 @@
 <h1><%= @profile.name %></h1>
 <h3><%= @profile.one_liner %></h3>
-
 <p><%= @profile.description %></p>
-
-<p>
-  <%= @profile.name %> is open to:
-  <% if @profile.general_comments == true %>
-    General Comments
-  <% end %>
-  <% if @profile.criticism == true %>
-    Constructive Criticism
-  <% end %>
-  <% if @profile.about_myself == true %>
-    Hearing about Myself
-  <% end %>
-  <% if @profile.anything == true %>
-    Anything and Everything
-  <% end %>
-</p>
 
 
 <h3>The word on the street:</h3>

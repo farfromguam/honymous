@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to :back
     else
-      flash[:notice] = "Fail"
+      flash[:notice] = "Sorry Your profile was not saved"
     end
   end
 
@@ -22,6 +22,5 @@ class CommentsController < ApplicationController
     Counter.create( :direction => "down", :comment_id => params[:id] )
     redirect_to :back
   end
-
 
 end
