@@ -4,10 +4,9 @@
 
 
 <h3>The word on the street:</h3>
-<% @profile_comments.each do |t| %>
+<% @sorted_profile_comments.each do |t| %>
   <p><%= t.comment %><br>
     <% id = t.id %>
-
 
   [ <%= t.count_sum %> (<%= t.count %>) |
 

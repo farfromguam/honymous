@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find(params[:id])
-    @profile_comments = Comment.where( 'profile_id' => @profile)
+    @profile_comments = Comment.where( 'profile_id' => @profile )
+    @sorted_profile_comments = @profile_comments.sort_by{ |comment| comment.count_sum }.reverse
   end
-
 end
