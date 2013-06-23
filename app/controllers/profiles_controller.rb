@@ -21,4 +21,5 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     @profile_comments = Comment.where( 'profile_id' => @profile)
   end
+
 end

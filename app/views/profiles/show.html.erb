@@ -21,22 +21,38 @@
 
 
 <h3>The word on the street:</h3>
-<% @profile_comments.each do |e| %>
-  <p><%= e.comment %><br>
+<% @profile_comments.each do |t| %>
+  <p><%= t.comment %><br>
+    <% id = t.id %>
 
-  [ Count | Vote Up | Vote Down ]
+
+  [ <%= t.count_sum %> (<%= t.count %>) |
+
+  <%= link_to "Vote Up",
+    :controller => "comments",
+    :action => "increment",
+    :id => t.id
+  %> |
+  <%= link_to "Vote Down",
+    :controller => "comments",
+    :action => "decrement",
+    :id => t.id
+  %> ]
 
   </p>
 <% end %>
 
 
-<h3>Add your two cents:</h3>
+
 <%= form_for [@profile, @profile.comments.new] do |f| %>
-<%= f.label :comment, "Your Comments" %>
+<h3>
+  <%= f.label :comment, "Your Comments" %>
+</h3>
 <%= f.text_area :comment, :cols => 35, :rows => 5 %><br>
 
 <% if user_signed_in? %>
-  [ ] Submit as Logged in user
+  ( ) Submit Annomiously<br>
+  ( ) Submit as Logged in user
 <% else %>
 
   <%= #f.text_field :ip_address, :value => request.remote_ip
