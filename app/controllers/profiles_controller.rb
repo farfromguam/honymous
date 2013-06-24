@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
       redirect_to profile_path(@profile.id)
     else
       flash[:error] = "Hey, Make sure Everything is filled out"
-      redirect_to :back
+      render :new
     end
   end
 

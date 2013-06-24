@@ -5,4 +5,5 @@ class Address < ActiveRecord::Base
   has_many :comments, :through => :counters
 
   attr_accessible :ip_address
+
 end
