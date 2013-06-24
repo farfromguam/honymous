@@ -17,8 +17,8 @@ class Comment < ActiveRecord::Base
   def count_sum
     up = Counter.where( :comment_id => self.id, :direction => "up" ).length
     down = Counter.where( :comment_id => self.id, :direction => "down").length
-    up = up * 1
-    down = (down * 2) * -1
+    up = up * 39
+    down = (down * 46) * -1
     up + down
   end
 

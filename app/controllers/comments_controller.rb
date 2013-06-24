@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to :back
     else
-      flash[:notice] = "Sorry Your profile was not saved"
+      flash[:error] = "Sorry Your profile was not saved"
     end
   end
 

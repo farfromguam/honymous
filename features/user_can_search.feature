@@ -17,4 +17,4 @@ Feature: Users can Search
     And I fill in "Billy Mays" for "search"
     And I press "Search"
     Then I should not see "Billy Mays"
-    And I should see "Error Message: There is nothing here"
+    And I should see "Your search returned no results."

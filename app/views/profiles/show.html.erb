@@ -4,48 +4,22 @@
 
 
 <h3>The word on the street:</h3>
-<% @sorted_profile_comments.each do |t| %>
-  <p><%= t.comment %><br>
-    <% id = t.id %>
-
-  [ <%= t.count_sum %> (<%= t.count %>) |
-
-  <%= link_to "Vote Up",
-    :controller => "comments",
-    :action => "increment",
-    :id => t.id
-  %> |
-  <%= link_to "Vote Down",
-    :controller => "comments",
-    :action => "decrement",
-    :id => t.id
-  %> ]
-
+<% @sorted_profile_comments.each do |comment| %>
+  <p><%= comment.comment %><br>
+    [ <%= comment.count_sum %> Points, <%= comment.count
+    %> | <%=
+    link_to "Vote Up", :controller => "comments", :action => "increment", :id => comment.id
+    %> | <%=
+    link_to "Vote Down", :controller => "comments", :action => "decrement", :id => comment.id
+    %> ]
   </p>
 <% end %>
 
 
-
 <%= form_for [@profile, @profile.comments.new] do |f| %>
-<h3>
-  <%= f.label :comment, "Your Comments" %>
-</h3>
-<%= f.text_area :comment, :cols => 35, :rows => 5 %><br>
-
-<% if user_signed_in? %>
-  ( ) Submit Annomiously<br>
-  ( ) Submit as Logged in user
-<% else %>
-
-  <%= #f.text_field :ip_address, :value => request.remote_ip
-  %>
-
-  This will be submitted anonymously,<br>
-  <%= link_to('Log In', new_user_session_path) %> to submit as a real person
-
-<% end %> <br>
-
-<p>
+  <h3>
+    <%= f.label :comment, "Your Comments:" %>
+  </h3>
+  <%= f.text_area :comment, :cols => 35, :rows => 5 %><br>
   <%= f.submit "Submit" %>
-</p>
 <% end %>

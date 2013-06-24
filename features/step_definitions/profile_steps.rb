@@ -5,5 +5,12 @@ Given(/^the profile "(.*?)" is "(.*?)"$/) do |name, public_profile|
     setting = false
   end
 
-  profile = Profile.create( name: name, public_profile: setting )
+  profile = Profile.create(
+    name: name,
+    one_liner: "This is the one liner",
+    description: "This is the description",
+    public_profile: setting,
+    user_id: 1
+  )
+
 end

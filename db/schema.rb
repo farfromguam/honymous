@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(:version => 20130620155314) do
   create_table "comments", :force => true do |t|
     t.string   "comment"
     t.string   "author"
+    t.integer  "profile_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "profile_id"
   end
 
   create_table "counters", :force => true do |t|
@@ -37,12 +37,12 @@ ActiveRecord::Schema.define(:version => 20130620155314) do
   end
 
   create_table "profiles", :force => true do |t|
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
     t.string   "name"
+    t.string   "one_liner"
     t.text     "description"
     t.boolean  "public_profile"
-    t.string   "one_liner"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.integer  "user_id"
   end
 

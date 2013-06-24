@@ -1,10 +1,10 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
   has_many :comments
-
   accepts_nested_attributes_for :comments
 
-  attr_accessible :name, :description, :general_comments, :criticism, :about_myself, :anything, :public_profile, :one_liner, :user_id
+  attr_accessible :name, :one_liner, :description, :public_profile, :user_id
+  validates_presence_of :name, :one_liner, :description
 
   scope :pp, where(:public_profile => true)
 

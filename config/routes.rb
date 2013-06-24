@@ -7,10 +7,9 @@ Honymous::Application.routes.draw do
     resources :comments
   end
 
+  match "manage" => 'profiles#manage'
   match "profile/comment/increment" => 'comments#increment'
   match "profile/comment/decrement" => 'comments#decrement'
-
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

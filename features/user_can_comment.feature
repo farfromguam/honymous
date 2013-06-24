@@ -10,9 +10,7 @@ Feature: Users can comment
     And I press "Search"
     Then I should see "Billy Mays"
     And I click "Billy Mays"
-    Then I should see "Add your two cents:"
+    Then I should see "Your Comments:"
     And I fill in "Your commercials suck!" for "Your Comments"
     And I press "Submit"
     Then I should see "Your commercials suck!"
-
-  Scenario: User can Vote on comment
