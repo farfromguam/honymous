@@ -3,13 +3,14 @@ Feature: Profile Actions
   something, something
   to make money....
 
+  Scenario: Cannot Make profile unless logged in
+    When I go to the new profile page
+    Then I should not see "New Profile"
+    And I should see "You need to sign in or sign up before continuing."
+
   Scenario: See Create a Profile link
-    Given the user "bob@example.com" with password "password1"
+    Given the user "bob@example.com" with password "password1" is logged in
     When I go to the homepage
-    And I click "Login"
-    And I fill in "bob@example.com" for "Email"
-    And I fill in "password1" for "Password"
-    And I press "Submit"
     Then I should see "Create a profile"
 
   Scenario: Create New Profile
@@ -27,16 +28,25 @@ Feature: Profile Actions
     And I should see "A short order cook."
     And I should see "I'm a cool guy in my mind, tell me what you think"
 
-  Scenario: See Your public profile Link
+ Scenario: Create a incomplete Profile
     Given the user "bob@example.com" with password "password1" is logged in
     When I go to the homepage
     Then I should see "Create a profile"
     When I press "Create a profile"
     Then I should see "New Profile"
     And I fill in "Bob Thompson" for "Your Name"
-    And I fill in "A short order cook." for "one-liner"
-    And I fill in "I'm a cool guy in my mind, tell me what you think" for "feedback on?"
     And I click "Submit"
-    Then I should see "Manage"
+    Then I should see "Make sure Everything is filled out"
+
+  Scenario: Incomplete profile reloads current page
+    Given the user "bob@example.com" with password "password1" is logged in
     When I go to the homepage
-    Then I should see "Manage"
+    Then I should see "Create a profile"
+    When I press "Create a profile"
+    Then I should see "New Profile"
+    And I fill in "Bob Thompson" for "Your Name"
+    And I click "Submit"
+    Then I should see "Make sure Everything is filled out"
+    And Inside of "Your Name" i should see "Bob Thompson"
+
+

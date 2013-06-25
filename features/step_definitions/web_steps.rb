@@ -25,3 +25,7 @@ end
 Then(/^I should not see "(.*?)"$/) do |content|
   page.should_not have_content(content)
 end
+
+Then(/^Inside of "(.*?)" i should see "(.*?)"$/) do |field, value|
+  page.should have_field(field, with: value)
+end

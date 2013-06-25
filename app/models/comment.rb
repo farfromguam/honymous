@@ -1,7 +1,7 @@
 class Comment < ActiveRecord::Base
   belongs_to :profile
 
-  has_many :counters
+  has_many :counters, :dependent => :destroy
   has_many :addresses, :through => :counters
 
   accepts_nested_attributes_for :counters
@@ -24,10 +24,8 @@ class Comment < ActiveRecord::Base
   def count_sum
     up = Counter.where( :comment_id => self.id, :direction => "up" ).length
     down = Counter.where( :comment_id => self.id, :direction => "down").length
-    randup = rand(30...42)
-    randdn = rand(42...59)
-    up = up * randup
-    down = (down * randdn) * -1
+    up = up * 36
+    down = (down * 42) * -1
     count = up + down
   end
 

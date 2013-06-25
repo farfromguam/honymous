@@ -33,7 +33,7 @@ class ProfilesController < ApplicationController
   end
 
   def manage
-    @user_profiles = Profile.all( params[:current_user_id])
+    @user_profiles = Profile.where( 'user_id' => current_user )
   end
 
   def edit

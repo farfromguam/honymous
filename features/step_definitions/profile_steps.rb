@@ -29,3 +29,16 @@ Given(/^the profile "(.*?)" is open$/) do |name|
   check "Make my profile public"
   click_button "Submit"
 end
+
+When(/^I go to the new profile page$/) do
+  visit new_profile_path
+end
+
+Given(/^the user makes profile "(.*?)"$/) do |name|
+  visit new_profile_path
+  fill_in "Name", with: name
+  fill_in "one-liner", with: "This is my one liner"
+  fill_in "feedback on?", with: "generic feedback please :)"
+  check "Make my profile public"
+  click_button "Submit"
+end
