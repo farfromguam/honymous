@@ -1,0 +1,32 @@
+<%= simple_form_for(@profile, :html => { :class => 'form-horizontal' }) do |f| %>
+  <label>
+    <%= f.label :name, "Your Name" %>
+  </label>
+  <div class="input">
+  <%= f.text_field :name, :class => "input-xlarge" %>
+  </div>
+
+  <label>
+    <%= f.label :one_liner, "A one-liner to help people find you" %>
+  </label>
+  <div class="input">
+    <%= f.text_field :one_liner, :class => "input-xlarge"  %>
+  </div>
+
+  <label>
+    <%= f.label :description, "What are you looking for feedback on?" %>
+  </label>
+  <div class="input">
+    <%= f.text_area :description, :class => "input-xlarge", :rows => 6 %>
+  </div>
+
+  <div class="input">
+    <%= f.input_field :public_profile, as: :boolean, inline_label: "Make my profile public" %>
+  </div>
+
+  <div class="form-button">
+    <%= f.submit "Submit", :class => "btn" %>
+  </div>
+<% end %>
+
+
