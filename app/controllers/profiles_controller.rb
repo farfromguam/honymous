@@ -7,7 +7,7 @@ class ProfilesController < ApplicationController
   end
 
   def index
-    @profile_search = Profile.search(params[:search])
+    @search = Profile.search(params[:search])
   end
 
   def new

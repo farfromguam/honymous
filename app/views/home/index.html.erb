@@ -1,11 +1,10 @@
-<h1>Honymous</h1>
-<p>Honest and Annymous comments</p>
+<h1>
+  Honymous
+</h1>
+<p class="lead">
+  Honest and Annymous comments
+</p>
 
-<%= @all_profiles.count %> Profiles Online<br>
+<%= render :partial => "profiles/search" %>
 
-<%= form_tag profiles_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil  %>
-  </p>
-<% end %>
+<%= @profile_count %> Profiles Online<br>

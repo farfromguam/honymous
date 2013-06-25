@@ -11,15 +11,24 @@ class Comment < ActiveRecord::Base
   def count
     up = Counter.where( :comment_id => self.id, :direction => "up" ).length
     down = Counter.where( :comment_id => self.id, :direction => "down").length
-    "#{up} up, #{down} down"
+
+    if up == 0
+      "#{down} down"
+    elsif down == 0
+      "#{up} up"
+    else
+      "#{up} up, #{down} down"
+    end
   end
 
   def count_sum
     up = Counter.where( :comment_id => self.id, :direction => "up" ).length
     down = Counter.where( :comment_id => self.id, :direction => "down").length
-    up = up * 39
-    down = (down * 46) * -1
-    up + down
+    randup = rand(30...42)
+    randdn = rand(42...59)
+    up = up * randup
+    down = (down * randdn) * -1
+    count = up + down
   end
 
 end

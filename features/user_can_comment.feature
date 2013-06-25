@@ -4,7 +4,7 @@ Feature: Users can comment
   to make money....
 
   Scenario: User can comment on profile
-    Given the profile "Billy Mays" is "public"
+    Given the profile "Billy Mays" is open
     When I go to the homepage
     And I fill in "Billy Mays" for "search"
     And I press "Search"

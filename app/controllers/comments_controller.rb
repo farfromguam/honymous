@@ -26,11 +26,11 @@ class CommentsController < ApplicationController
 
   def decrement
     counter = Counter.new( :direction => "down", :comment_id => params[:id] )
-    counter.address = Address.new( :ip_address => "192.168.1.1" )
+    counter.address = Address.find_or_create_by_ip_address( :ip_address => "192.168.1.1" )
     if counter.save
       redirect_to :back
     else
-      flash[:error] = "There was a error"
+      flash[:error] = "Vote not saved, You can't vote twice"
       redirect_to :back
     end
   end

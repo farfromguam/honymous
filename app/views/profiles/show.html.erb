@@ -1,25 +1,45 @@
-<h1><%= @profile.name %></h1>
-<h3><%= @profile.one_liner %></h3>
-<p><%= @profile.description %></p>
+<div class="row">
+  <div class="span3 text-right">
+    <%= image_tag avatar_url(@profile.user.email), :class => "img-polaroid" %>
+  </div>
+  <div class="span5">
+    <h1>
+      <%= @profile.name %>
+    </h1>
+    <h4>
+      <%= @profile.one_liner %>
+    </h4>
+    <p>
+      <%= @profile.description %><br><br>
+    </p>
 
 
-<h3>The word on the street:</h3>
-<% @sorted_profile_comments.each do |comment| %>
-  <p><%= comment.comment %><br>
-    [ <%= comment.count_sum %> Points, <%= comment.count
-    %> | <%=
-    link_to "Vote Up", :controller => "comments", :action => "increment", :id => comment.id
-    %> | <%=
-    link_to "Vote Down", :controller => "comments", :action => "decrement", :id => comment.id
-    %> ]
-  </p>
-<% end %>
+    <h4>What people are saying:</h4>
+    <% @sorted_profile_comments.each do |comment| %>
+      <div class="well well-small">
+        <p>
+          <%= comment.comment %><br>
+        </p>
+          <% if comment.count_sum >= 0 %>
+            <i class="icon-star"></i> <%= comment.count_sum %> |
+          <% else %>
+            <i class="icon-warning-sign"></i> <%= comment.count_sum %> |
+          <% end %>
+          <%= link_to "Vote Up", :controller => "comments", :action => "increment", :id => comment.id %> |
+          <%= link_to "Vote Down", :controller => "comments", :action => "decrement", :id => comment.id %>
+      </div>
+    <% end %>
 
 
-<%= form_for [@profile, @profile.comments.new] do |f| %>
-  <h3>
-    <%= f.label :comment, "Your Comments:" %>
-  </h3>
-  <%= f.text_area :comment, :cols => 35, :rows => 5 %><br>
-  <%= f.submit "Submit" %>
-<% end %>
+    <h4>Add something to the mix:</h4>
+    <%= form_for [@profile, @profile.comments.new] do |f| %>
+      <label>
+        <%= f.label :comment, "Your Comments:" %>
+      <label>
+      <%= f.text_area :comment, :class => "input-xlarge", :rows => 5 %><br>
+      <%= f.submit "Submit", :class => "btn" %>
+    <% end %>
+  </div>
+</div>
+
+

@@ -1,19 +1,13 @@
 <h1>Search results</h1>
 
-<%= form_tag profiles_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search Again", :name => nil  %>
-  </p>
-<% end %>
-
+<%= render :partial => "profiles/search" %>
 
 <p>
-<% if @profile_search.length == 0 %>
+<% if @search.length == 0 %>
   Your search returned no results.<br>
   Remember private profiles dont show up in searches
 <% else %>
-  <% @profile_search.each do |profile| %>
+  <% @search.each do |profile| %>
     <%= link_to(profile.name, profile_path(profile.id)) %> - <%= profile.one_liner %><br>
   <% end %>
 <% end %>
