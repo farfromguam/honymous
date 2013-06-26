@@ -15,7 +15,9 @@ class CommentsController < ApplicationController
 
   def increment
     counter = Counter.new( :direction => "up", :comment_id => params[:id] )
-    counter.address = Address.find_or_create_by_ip_address( :ip_address => "192.168.1.1" )
+    counter.address = Address.find_or_create_by_ip_address(
+      :ip_address => request.env['HTTP_X_FORWARDED_FOR']
+    )
     if counter.save
       redirect_to :back
     else
@@ -26,7 +28,9 @@ class CommentsController < ApplicationController
 
   def decrement
     counter = Counter.new( :direction => "down", :comment_id => params[:id] )
-    counter.address = Address.find_or_create_by_ip_address( :ip_address => "192.168.1.1" )
+    counter.address = Address.find_or_create_by_ip_address(
+      :ip_address => request.env['HTTP_X_FORWARDED_FOR']
+    )
     if counter.save
       redirect_to :back
     else
