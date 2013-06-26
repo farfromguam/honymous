@@ -54,6 +54,9 @@ In Beta Testing<br>
 
 [![Code Climate](https://codeclimate.com/github/farfromguam/honymous.png)](https://codeclimate.com/github/farfromguam/honymous)
 
+[![Coverage Status](https://coveralls.io/repos/farfromguam/honymous/badge.png)](https://coveralls.io/r/farfromguam/honymous)
+
+
 To Do:
 ------
 
