@@ -1,14 +1,32 @@
-<h1>
-  Honymous
-</h1>
-<p class="lead">
-  Honest and Annymous comments
-</p>
+<div class="row">
+  <div class="span12 text-center">
+    <h1>
+      Honymous
+    </h1>
+    <p class="lead">
+      Honest and Anonymous comments
+    </p>
 
-<%= render :partial => "profiles/search" %>
+    <%= render :partial => "profiles/search" %>
 
-<%= @profile_count %> Profiles Online<br>
+    <%= @profile_count %> Profiles Online<br>
 
-
-<%= Comment.all.length %> Comments<br>
-<%= Counter.all.length %> Counter<br>
+  </div>
+</div>
+<div class="row">
+  <div class="span4">
+    <h3>
+      What is this
+    </h3>
+  </div>
+  <div class="span4">
+    <h3>
+       Ok, Why?
+    </h3>
+  </div>
+  <div class="span4">
+    <h3>
+      Comments
+    </h3>
+  </div>
+</div>

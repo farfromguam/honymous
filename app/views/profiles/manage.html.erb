@@ -20,9 +20,14 @@
           <%= profile.name %>
         </h4>
         <p>
-          belongs to user_id: <%= profile.user_id %><br>
           <%= profile.one_liner %>
         </p>
+        <% if !profile.public_profile %>
+          <p>
+            This profile is private. To share, email this URL:<br>
+            <%= profile_url(profile) %>
+          </p>
+        <% end %>
         <p>
           <%= link_to "Visit", profile_url(profile), :class => "btn btn-success"  %>
           <%= link_to "Edit", edit_profile_url(profile), :class => "btn btn-warning" %>

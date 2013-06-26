@@ -13,25 +13,25 @@
       <%= @profile.description %><br><br>
     </p>
 
-
-    <h4>What people are saying about <%= @profile.name %>:</h4>
-    <% @sorted_profile_comments.each do |comment| %>
-      <div class="well well-small">
-        <p>
-          <%= comment.comment %><br>
-        </p>
-          <% if comment.count_sum >= 0 %>
-            <i class="icon-star"></i> <%= comment.count_sum %> |
-          <% else %>
-            <i class="icon-warning-sign"></i> <%= comment.count_sum %> |
-          <% end %>
-          <%= link_to "Vote Up", :controller => "comments", :action => "increment", :id => comment.id %> |
-          <%= link_to "Vote Down", :controller => "comments", :action => "decrement", :id => comment.id %>
-      </div>
+    <% if @sorted_profile_comments.length > 0 %>
+      <h4>What people are saying about <%= @profile.name %>:</h4>
+      <% @sorted_profile_comments.each do |comment| %>
+        <div class="well well-small">
+          <p>
+            <%= comment.comment %><br>
+          </p>
+            <% if comment.count_sum >= 0 %>
+              <i class="icon-star"></i> <%= comment.count_sum %> |
+            <% else %>
+              <i class="icon-warning-sign"></i> <%= comment.count_sum %> |
+            <% end %>
+            <%= link_to "Vote Up", :controller => "comments", :action => "increment", :id => comment.id %> |
+            <%= link_to "Vote Down", :controller => "comments", :action => "decrement", :id => comment.id %>
+        </div>
+      <% end %>
     <% end %>
 
-
-    <h4>Add something to the mix:</h4>
+    <h4>Say something:</h4>
     <%= form_for [@profile, @profile.comments.new] do |f| %>
       <label>
         <%= f.label :comment, "Your Comments:" %>
@@ -41,5 +41,3 @@
     <% end %>
   </div>
 </div>
-
-
