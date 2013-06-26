@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'bootstrap-sass'
+gem 'coveralls', require: false
 gem 'devise'
 gem 'jquery-rails'
 gem 'pg'
