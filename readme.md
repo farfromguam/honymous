@@ -60,12 +60,7 @@ In Beta Testing<br>
 To Do:
 ------
 
-- [ ] Require email confirmation
-- [ ] Capture IP addresses of voters
-- [ ] Run live demo on heroku
-- [ ] pair with travis-ci.org
-- [ ] Get health status from codeclimate
-- [ ] Check test coverage with coveralls
+- [ ] Require email confirmation (to prevent fraud)
 - [ ] Add some stying
 
 Project Log:

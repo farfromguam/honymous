@@ -14,20 +14,15 @@ class CommentsController < ApplicationController
   end
 
   def increment
-    counter = Counter.new( :direction => "up", :comment_id => params[:id] )
-    counter.address = Address.find_or_create_by_ip_address(
-      :ip_address => request.env['HTTP_X_FORWARDED_FOR']
-    )
-    if counter.save
-      redirect_to :back
-    else
-      flash[:error] = "Vote not saved, You can't vote twice"
-      redirect_to :back
-    end
+    new_counter("up")
   end
 
   def decrement
-    counter = Counter.new( :direction => "down", :comment_id => params[:id] )
+    new_counter("down")
+  end
+
+  def new_counter(direction)
+    counter = Counter.new( :direction => direction, :comment_id => params[:id] )
     counter.address = Address.find_or_create_by_ip_address(
       :ip_address => request.env['HTTP_X_FORWARDED_FOR']
     )
