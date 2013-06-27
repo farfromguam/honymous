@@ -1,5 +1,8 @@
 <div class="row">
-  <div class="span3 text-right">
+  <div class="span3 text-right hidden-phone">
+    <%= image_tag avatar_url(@profile.user.email), :class => "img-polaroid" %>
+  </div>
+  <div class="span3 visible-phone">
     <%= image_tag avatar_url(@profile.user.email), :class => "img-polaroid" %>
   </div>
   <div class="span5">
